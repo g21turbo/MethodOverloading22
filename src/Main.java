@@ -16,6 +16,9 @@ public class Main {
         calculateScore("Jane");
 
         calculateScore();
+
+        calcFeetAndInchesToCentimeters(1, 1);
+        calcFeetAndInchesToCentimeters(48);
     }
 
     public static int calculateScore(String playerName, int score, int levelCompleted){
@@ -31,12 +34,30 @@ public class Main {
 
     public static int calculateScore(String playerName){
         System.out.println("Player " + playerName + " is playing");
-        return 1;
+        return 0;
     }
 
     public static int calculateScore(){
         System.out.println("No Name, No score");
         return 0;
+    }
+
+    public static double calcFeetAndInchesToCentimeters(double feet, double inches){
+        if (feet >= 0 && inches >=0 && inches <= 12){
+            double cmToIn = inches * 2.54;
+            double cmToFt = cmToIn * 12;
+            System.out.println("There are " + cmToFt + " centimeters in " + feet +  " feet.\n");
+            System.out.println("There are " + cmToIn + " centimeters in " + inches + " inches");
+        }
+        return -1;
+    }
+
+    public static double calcFeetAndInchesToCentimeters(double inches){
+        if (inches >=0){
+            double feetToInches = inches / 12;
+            System.out.println("There are " + feetToInches + " feet in " + inches + " inches");
+        }
+        return -1;
     }
 
 
