@@ -17,8 +17,16 @@ public class Main {
 
         calculateScore();
 
-        calcFeetAndInchesToCentimeters(1, 1);
+        System.out.println("\n");
+
+        calcFeetAndInchesToCentimeters(7, 10);
         calcFeetAndInchesToCentimeters(48);
+
+        double centimeters = calcFeetAndInchesToCentimeters(5,10);
+        if (centimeters <0.0){
+            System.out.println("Invalid Parameter");
+        }
+
     }
 
     public static int calculateScore(String playerName, int score, int levelCompleted){
@@ -42,14 +50,19 @@ public class Main {
         return 0;
     }
 
+
+    // new set of methods
+
     public static double calcFeetAndInchesToCentimeters(double feet, double inches){
-        if (feet >= 0 && inches >=0 && inches <= 12){
-            double cmToIn = inches * 2.54;
-            double cmToFt = cmToIn * 12;
-            System.out.println("There are " + cmToFt + " centimeters in " + feet +  " feet.\n");
-            System.out.println("There are " + cmToIn + " centimeters in " + inches + " inches");
+        if ((feet <0) || (inches <0 || inches >12)){
+            System.out.println("Invalid feet or inches parameter");
+            return -1;
         }
-        return -1;
+        double centimeters = (feet * 12) * 2.54;
+        centimeters += inches * 2.54;
+        System.out.println(feet + " feet, " + inches + " inches = " + centimeters + " cm");
+        return centimeters;
+
     }
 
     public static double calcFeetAndInchesToCentimeters(double inches){
