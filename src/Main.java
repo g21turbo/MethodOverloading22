@@ -27,6 +27,8 @@ public class Main {
             System.out.println("Invalid Parameter");
         }
 
+        calcFeetAndInchesToCentimeters(100);
+
     }
 
     public static int calculateScore(String playerName, int score, int levelCompleted){
@@ -66,11 +68,13 @@ public class Main {
     }
 
     public static double calcFeetAndInchesToCentimeters(double inches){
-        if (inches >=0){
-            double feetToInches = inches / 12;
-            System.out.println("There are " + feetToInches + " feet in " + inches + " inches");
+        if (inches <0){
+            return -1;
         }
-        return -1;
+        double feet = (int) inches / 12;
+        double remainingInches = (int) inches % 12;
+        System.out.println(inches + " inches is equal to " + feet + " feet and " + remainingInches);
+        return calcFeetAndInchesToCentimeters(feet, remainingInches);
     }
 
 
